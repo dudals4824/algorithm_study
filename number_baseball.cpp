@@ -74,6 +74,5 @@ int main(void) {
 
 	cout << Answer << endl;
 
-	system("pause");
 	return 0;
 }
