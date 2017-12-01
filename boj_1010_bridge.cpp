@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// [¿ÞÂÊ ´Ù¸® ¹øÈ£][¿À¸¥ÂÊ ´Ù¸® ¹øÈ£]
+// [ì™¼ìª½ ë‹¤ë¦¬ ë²ˆí˜¸][ì˜¤ë¥¸ìª½ ë‹¤ë¦¬ ë²ˆí˜¸]
 static int arr[31][31];
 static int Answer = 0;
 
@@ -19,14 +19,14 @@ int main(void) {
 		cin >> N >> M;
 		Answer = 0;
 
-		//±âÀúÁ¶°Ç 1 :: N°ú MÀÌ °°À¸¸é °æ¿ìÀÇ ¼ö´Â ÇÏ³ª
+		//ê¸°ì €ì¡°ê±´ 1 :: Nê³¼ Mì´ ê°™ìœ¼ë©´ ê²½ìš°ì˜ ìˆ˜ëŠ” í•˜ë‚˜
 		if (N == M) {
 			Answer = 1;
 			cout << Answer << endl;
 			continue;
 		}
 
-		//±âÀúÁ¶°Ç 2 :: NÀÌ 1ÀÌ¸é ¿À¸¥ÂÊ Site ¼ö°¡ ¸ðµç °æ¿ìÀÇ ¼ö¿Í °°À½.
+		//ê¸°ì €ì¡°ê±´ 2 :: Nì´ 1ì´ë©´ ì˜¤ë¥¸ìª½ Site ìˆ˜ê°€ ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ì™€ ê°™ìŒ.
 		if (N == 1) {
 			Answer = M;
 			cout << Answer << endl;
@@ -34,15 +34,15 @@ int main(void) {
 		}
 
 
-		//¿ÞÂÊ 1¹ø Site°¡ ¿À¸¥ÂÊ Site¿¡ °¥ ¼ö ÀÖ´Â ¹øÈ£¸¦ ¼±ÅÃ
-		// ex) ¿ÞÂÊ Site°¡ 3°³, ¿À¸¥ÂÊ Site°¡ 6°³ ÀÏ¶§
-		//  ¿ÞÂÊ Site 1¹øÀº ¿À¸¥ÂÊ Site¿¡¼­ °¡Àå »ó´Ü 2°³¸¦ Á¦¿ÜÇÑ 4°³(M(6)-N(3)+1)¸¦ ¿ÞÂÊ 1¹ø Site°¡ °¥ ¼ö ÀÖÀ½
+		//ì™¼ìª½ 1ë²ˆ Siteê°€ ì˜¤ë¥¸ìª½ Siteì— ê°ˆ ìˆ˜ ìžˆëŠ” ë²ˆí˜¸ë¥¼ ì„ íƒ
+		// ex) ì™¼ìª½ Siteê°€ 3ê°œ, ì˜¤ë¥¸ìª½ Siteê°€ 6ê°œ ì¼ë•Œ
+		//  ì™¼ìª½ Site 1ë²ˆì€ ì˜¤ë¥¸ìª½ Siteì—ì„œ ê°€ìž¥ ìƒë‹¨ 2ê°œë¥¼ ì œì™¸í•œ 4ê°œ(M(6)-N(3)+1)ë¥¼ ì™¼ìª½ 1ë²ˆ Siteê°€ ê°ˆ ìˆ˜ ìžˆìŒ
 		for (int k = 1; k <= (M - N + 1); k++)
 			arr[1][k] = 1;
 
 
-		// [¿ÞÂÊ Site ¹øÈ£][¿À¸¥ÂÊ Site ¹øÈ£] : ¿ÞÂÊ Æ¯Á¤ Site¿¡¼­ ¿À¸¥ÂÊ Æ¯Á¤ Site¿¡ °¥ ¶§ °æ¿ìÀÇ ¼ö
-		// ¾Æ·¡ ¹Ýº¹¹® EX) [3][5] = [2][2] + [2][3] + [2][4]
+		// [ì™¼ìª½ Site ë²ˆí˜¸][ì˜¤ë¥¸ìª½ Site ë²ˆí˜¸] : ì™¼ìª½ íŠ¹ì • Siteì—ì„œ ì˜¤ë¥¸ìª½ íŠ¹ì • Siteì— ê°ˆ ë•Œ ê²½ìš°ì˜ ìˆ˜
+		// ì•„ëž˜ ë°˜ë³µë¬¸ EX) [3][5] = [2][2] + [2][3] + [2][4]
 
 		for (int a = 2; a <= N; a++) {
 			for (int b = a; b <= (M - N + a); b++) {
@@ -58,7 +58,7 @@ int main(void) {
 			}
 		}
 
-		// ¿ÞÂÊ N¹øÂ° Site¿¡¼­ °¥ ¼ö ÀÖ´Â ¸ðµç °æ¿ìÀÇ ¼ö ÇÕÀÌ ´äÀÌ´Ù.
+		// ì™¼ìª½ Në²ˆì§¸ Siteì—ì„œ ê°ˆ ìˆ˜ ìžˆëŠ” ëª¨ë“  ê²½ìš°ì˜ ìˆ˜ í•©ì´ ë‹µì´ë‹¤.
 		for (int a = N; a <= M; a++)
 			Answer += arr[N][a];
 
@@ -72,6 +72,5 @@ int main(void) {
 
 	}
 
-	system("pause");
 	return 0;
 }
